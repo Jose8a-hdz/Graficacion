@@ -1,6 +1,6 @@
 import turtle
 
-# Configuración de colores para cada número (0-9)
+# Configuracion de colores para cada numero (0-9)
 colores = {
     0: "white",    # Fondo
     1: "red",
@@ -14,7 +14,7 @@ colores = {
     9: "cyan"
 }
 
-def crear_archivo(): #Crea un archivo de ejemplo con números del 0-9 en una matriz 100x100
+def crear_archivo(): #Crea un archivo de ejemplo con numeros del 0-9 en una matriz 100x100
     import random
     
     # Crear una matriz con variedad de colores
@@ -22,8 +22,8 @@ def crear_archivo(): #Crea un archivo de ejemplo con números del 0-9 en una mat
         for i in range(100):
             fila = []
             for j in range(100):
-                # Crear patrones interesantes para visualización
-                if i < 10:  # Primera fila: números ordenados
+                # Crear patrones interesantes para visualizacion
+                if i < 10:  # Primera fila: numeros ordenados
                     numero = j % 10
                 elif i < 20:  # Segunda fila: gradiente
                     numero = (j // 10) % 10
@@ -31,7 +31,7 @@ def crear_archivo(): #Crea un archivo de ejemplo con números del 0-9 en una mat
                     numero = random.randint(1, 9)
                 elif i == j or i + j == 99:  # Diagonales
                     numero = random.choice([1, 2, 3])
-                else:  # Patrón aleatorio con distribución variada
+                else:  # Patron aleatorio con distribucion variada
                     numero = random.choices(
                         [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
                         weights=[30, 10, 10, 10, 10, 5, 5, 5, 5, 10]
@@ -52,7 +52,7 @@ def dibujar_matriz_turtle(matriz, colores): #Dibuja la matriz usando Turtle
     pantalla = turtle.Screen()
     pantalla.setup(800, 800)
     pantalla.title("Matriz de Colores 100x100")
-    pantalla.tracer(0)  # Desactivar animación para mayor velocidad
+    pantalla.tracer(0)  # Desactivar animacion para mayor velocidad
     
     # Configurar turtle
     artista = turtle.Turtle()
@@ -60,21 +60,21 @@ def dibujar_matriz_turtle(matriz, colores): #Dibuja la matriz usando Turtle
     artista.penup()
     artista.hideturtle()
     
-    # Tamaño de cada píxel
+    # Tamano de cada pixel
     tamano_pixel = 8
     desplazamiento = tamano_pixel * 100 / 2
     
-    # Dibujar cada píxel
+    # Dibujar cada pixel
     for y in range(100):
         for x in range(100):
             numero = matriz[y][x]
             color = colores[numero]
             
-            # Calcular posición
+            # Calcular posicion
             pos_x = x * tamano_pixel - desplazamiento
             pos_y = desplazamiento - y * tamano_pixel
             
-            # Dibujar el píxel
+            # Dibujar el pixel
             artista.goto(pos_x, pos_y)
             artista.dot(tamano_pixel, color)
     
@@ -94,7 +94,7 @@ def main():
     print("Matriz cargada correctamente")
     print(f"Tamano: {len(matriz)}x{len(matriz[0])}")
     
-    # Mostrar estadísticas de colores
+    # Mostrar estadisticas de colores
     conteo_colores = {num: 0 for num in range(10)}
     for fila in matriz:
         for numero in fila:
